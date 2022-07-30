@@ -2,6 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: 'yekan-bl';
+    src: url("fonts/YekanBakh-Bold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'yekan-reg';
+    src: url("fonts/Yekan-Bakh-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'yekan-heavy';
+    src: url("fonts/YekanBakh-Heavy.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'yekan-md';
+    src: url("fonts/YekanBakh-Medium.ttf") format("truetype");
+}
+
 @layer components {
     #__next {
         @apply w-full h-full
