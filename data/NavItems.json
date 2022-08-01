@@ -1,0 +1,19 @@
+[
+  {
+    "text": "خانه",
+    "path": "/"
+  },
+  { "text": "محصولات", "path": "/products" },
+  {
+    "text": "تلفن همراه",
+    "path": "/products/phones"
+  },
+  {
+    "text": "لپ تاپ",
+    "path": "/products/laptops"
+  },
+  {
+    "text": "ساعت هوشمند",
+    "path": "/products/smart-watches"
+  }
+]

@@ -22,8 +22,22 @@
     src: url("fonts/YekanBakh-Medium.ttf") format("truetype");
 }
 
+@font-face {
+    font-family: 'kalameh-bold';
+    src: url("fonts/Kalameh-Bold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'kalameh-black';
+    src: url("fonts/KALAMEH-BLACK.TTF") format("truetype");
+}
+
 @layer components {
     #__next {
         @apply w-full h-full
     }
+}
+
+:root {
+    --test-color: #000;
 }
