@@ -1,0 +1,43 @@
+[
+  {
+    "type": "products",
+    "title": "دسته بندی",
+    "datas": [
+      { "text": "تلفن همراه", "icon": "PhoneIcon" },
+      { "text": "لپ تاپ", "icon": "LaptopIcon" },
+      { "text": "ساعت هوشمند", "icon": "SmartWatchIcon" }
+    ]
+  },
+  {
+    "type": "filtersDropDowns",
+    "title": "فیلتر",
+    "datas": [
+      {
+        "title": "برند محصول",
+        "type": "brand",
+        "icon": "BrandIcon",
+        "dropDatas": ["اپل", "سامسونگ", "شیائومی", "هواوی"]
+      },
+      {
+        "title": "رنگ محصول",
+        "type": "color",
+        "icon": "ProductsColorsIcon",
+        "dropDatas": [
+          { "name": "نارنجی", "hex": "bg-orange-400" },
+          { "name": "سیاه", "hex": "bg-slate-700" },
+          { "name": "بنفش", "hex": "bg-indigo-600" },
+          { "name": "سفید", "hex": "bg-slate-200" },
+          { "name": "زرد", "hex": "bg-yallow-400" },
+          { "name": "سبز", "hex": "bg-green-200" }
+        ]
+      },
+      {
+        "title": "محدوده قیمت",
+        "icon": "ProductsPricesIcon",
+        "type": "price",
+        "minmax": { "min": 0, "max": 70000000 },
+        "dropDatas": null
+      }
+    ]
+  }
+]

@@ -31,16 +31,16 @@ const items = [
 const BottomNavigationItems = () => {
   const router = useRouter();
 
-  return items.map((data) => (
-    <Link href={data.path}>
+  return items.map((data, index) => (
+    <Link href={data.path} key={index}>
       <a className="flex justify-center items-center flex-row-reverse">
         <data.icon
           className={`${
-            router.pathname === data.path ? "text-[#222F5D]" : "text-gray-500"
+            router.pathname === data.path ? "text-slate-1000" : "text-gray-300"
           } w-[28px] h-[28px]`}
         />
         {router.pathname === data.path && (
-          <span className="text-[18px] font-bold mt-[6px] mr-[3px] text-[#222F5D] flex justify-center items-center text-center">
+          <span className="text-[18px] font-bold mt-[6px] mr-[3px] text-slate-1000 flex justify-center items-center text-center">
             {data.text}
           </span>
         )}

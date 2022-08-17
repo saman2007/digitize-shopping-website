@@ -25,7 +25,7 @@ const SearchBar = () => {
       onSubmit={submitFormHandler}
       className={`rounded-[5px] ${
         shouldOpen ? "max-w-full absolute left-0 right-0" : "max-w-[45px]"
-      } z-10 bg-gray-200 transition-all duration-[250ms] sm:max-w-[500px] sm:static sm:shadow-none shadow-md sm:h-[50px] flex-grow flex flex-row-reverse items-center`}
+      } z-10 bg-stone-100 transition-all duration-[250ms] sm:max-w-[500px] sm:static sm:shadow-none shadow-md sm:h-[50px] flex-grow flex flex-row-reverse items-center`}
     >
       <SearchButton />
       <CloseSearchBar
@@ -40,7 +40,7 @@ const SearchBar = () => {
         placeholder="جستجوی نام برند، نام محصول، نام مدل و..."
         className={`bg-transparent px-[7px] sm:block ${
           shouldOpen ? "block" : "hidden"
-        } py-[5px] w-full outline-none text-slate-800 sm:h-full h-[45px] text-right placeholder:text-slate-800`}
+        } py-[5px] w-full outline-none text-slate-800 sm:h-full h-[45px] text-right placeholder:text-gray-300`}
         style={{ direction: "rtl" }}
       />
     </form>
