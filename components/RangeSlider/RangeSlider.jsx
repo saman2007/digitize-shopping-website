@@ -1,15 +1,6 @@
-import { useCallback, useEffect } from "react";
+import { useCallback } from "react";
 import { useRef, useState } from "react";
-
-//a function to return the percent of a number relative to another number
-const getPercentOf = (number1, number2) => (number1 / number2) * 100;
-const getNumberFromPercent = (number1, number2) => (number1 * number2) / 100;
-const getMinMaxValues = ({ min, max, space }) => {
-  const minimumValue = getNumberFromPercent(min, space);
-  const maximumValue = getNumberFromPercent(max, space);
-
-  return { minimumValue, maximumValue };
-};
+import { getMinMaxValues, getPercentOf } from "../../helpers/helpers";
 
 const RangeSlider = ({ minMaxValues, onChange, defaultValues }) => {
   const availableSpace = minMaxValues.max - minMaxValues.min;

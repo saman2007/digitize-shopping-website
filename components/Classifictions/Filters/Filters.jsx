@@ -20,7 +20,8 @@ const Filters = ({ datas }) => {
 
         if (data.type === "color") return <Colors key={index} datas={data} />;
 
-        if (data.type === "price") return <PriceChanger key={index} datas={data} />;
+        if (data.type === "price")
+          return <PriceChanger key={index} datas={data} />;
       })}
     </div>
   );

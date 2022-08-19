@@ -5,14 +5,16 @@ import BottomNavigation from "../components/BottomNavigation/BottomNavigation";
 import { Provider } from "react-redux";
 import store from "../store/ReduxStore";
 import Spacer from "../components/Spacer/Spacer";
+import SpacerBottom from "../components/Spacer/SpacerBottom";
 
 function MyApp({ Component, pageProps }) {
   return (
     <Provider store={store}>
       <Navigation items={navItems} />
       <Spacer />
-      <BottomNavigation />
       <Component {...pageProps} />
+      <SpacerBottom />
+      <BottomNavigation />
     </Provider>
   );
 }

@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { filtersActions } from "../../../../store/Filters";
 
-const Color = ({ color, colorName }) => {
+const Color = ({ color, colorName, changeAll }) => {
   const colors = useSelector((store) => store.filters.brandColors);
   const dispatch = useDispatch();
   const doesExist = colors.includes(colorName);
@@ -9,6 +9,15 @@ const Color = ({ color, colorName }) => {
   return (
     <div
       onClick={() => {
+        if (changeAll) {
+          dispatch(
+            filtersActions.changeFilter({
+              type: "brandColors",
+              datas: ["all"],
+            })
+          );
+          return;
+        }
         if (!doesExist)
           dispatch(
             filtersActions.addFilter({ data: colorName, type: "brandColors" })
@@ -18,13 +27,17 @@ const Color = ({ color, colorName }) => {
             filtersActions.deleteFilter({
               data: colorName,
               type: "brandColors",
+              addAll: colors.length === 1,
             })
           );
       }}
-      className={`${color} w-[25px] mr-[5px] h-[25px] border rounded-full border-solid transition-all duration-150 ${
+      className={`w-[25px] mb-[5px] flex justify-center items-center mr-[5px] h-[25px] border-2 text-[12px] rounded-full border-solid transition-all duration-150 ${
         doesExist ? "border-slate-900" : "border-gray-300"
       }`}
-    ></div>
+      style={{ backgroundColor: color }}
+    >
+      {changeAll ? "همه" : ""}
+    </div>
   );
 };
 

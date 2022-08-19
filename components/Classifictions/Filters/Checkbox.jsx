@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { filtersActions } from "../../../store/Filters";
 
-const Checkbox = ({ name }) => {
+const Checkbox = ({ name, changeAll }) => {
   const brandsFilters = useSelector((store) => store.filters.brandsFilter);
   const dispatch = useDispatch();
   const isIncludes = brandsFilters.includes(name);
@@ -11,13 +11,27 @@ const Checkbox = ({ name }) => {
       <div
         className="absolute left-0 right-0 h-full w-full"
         onClick={() => {
+          if (changeAll) {
+            dispatch(
+              filtersActions.changeFilter({
+                type: "brandsFilter",
+                datas: ["all"],
+              })
+            );
+            return;
+          }
+
           if (!isIncludes)
             dispatch(
               filtersActions.addFilter({ data: name, type: "brandsFilter" })
             );
           else
             dispatch(
-              filtersActions.deleteFilter({ data: name, type: "brandsFilter" })
+              filtersActions.deleteFilter({
+                data: name,
+                type: "brandsFilter",
+                addAll: brandsFilters.length === 1,
+              })
             );
         }}
       ></div>

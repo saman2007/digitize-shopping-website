@@ -1,0 +1,57 @@
+[
+  {
+    "colors": ["#bf0012", "#fff", "#232a32", "#276888", "#faddd7", "#394c38"],
+    "kind": "تلفن همراه",
+    "name": "آیفون 13",
+    "price": 23000000,
+    "path": "/products/phones/iphone-13",
+    "cover": "/assets/iphone-13.png",
+    "brand": "اپل",
+    "popularity": 4.68,
+    "visits": 800
+  },
+  {
+    "colors": ["#bf0012", "#fff", "#232a32", "#276888", "#faddd7", "#394c38"],
+    "kind": "تلفن همراه",
+    "name": "آیفون 13 مینی",
+    "price": 20000000,
+    "path": "/products/phones/iphone-13-mini",
+    "cover": "/assets/iphone-13-mini.png",
+    "brand": "اپل",
+    "popularity": 4.8,
+    "visits": 339
+  },
+  {
+    "colors": ["#a7c1d8", "#53524e", "#f9e7cf", "#f1f2ed", "#576856"],
+    "kind": "تلفن همراه",
+    "name": "آیفون 13 پرو",
+    "price": 29000000,
+    "path": "/products/phones/iphone-13-pro",
+    "cover": "/assets/iphone-13-pro.png",
+    "brand": "اپل",
+    "popularity": 4.9,
+    "visits": 1141
+  },
+  {
+    "colors": ["#a7c1d8", "#53524e", "#f9e7cf", "#f1f2ed", "#576856"],
+    "kind": "تلفن همراه",
+    "name": "آیفون 13 پرو مکس",
+    "price": 31000000,
+    "path": "/products/phones/iphone-13-pro-max",
+    "cover": "/assets/iphone-13-pro-max.png",
+    "brand": "اپل",
+    "popularity": 5,
+    "visits": 2093
+  },
+  {
+    "colors": ["#bf0013", "#faf6f2", "#232a31"],
+    "kind": "تلفن همراه",
+    "name": "آیفون SE 2020",
+    "price": 13000000,
+    "path": "/products/phones/iphone-se-2020",
+    "cover": "/assets/iphone-se-2020.png",
+    "brand": "اپل",
+    "popularity": 4.16,
+    "visits": 504
+  }
+]

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Dropdown from "../../../Dropdown/DropDown";
 import RangeSlider from "../../../RangeSlider/RangeSlider";
 import { useDispatch, useSelector } from "react-redux";
@@ -14,7 +13,7 @@ const PriceChanger = ({ datas }) => {
         <div className="flex flex-col w-[90%] h-[30px] items-center justify-center">
           <RangeSlider
             defaultValues={{ minFill: 0, maxFill: 100 }}
-            minMaxValues={{ min: 20_000_000, max: 100_000_000 }}
+            minMaxValues={{ min: 13_000_000, max: 31_000_000 }}
             onChange={(e) => {
               const price = { min: e.minimumValue, max: e.maximumValue };
               dispatch(filtersActions.changePrice(price));
