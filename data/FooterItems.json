@@ -1,0 +1,15 @@
+[
+  {
+    "title": "محصولات",
+    "datas": [
+      { "text": "تلفن همراه", "path": "/products/phones/" },
+      { "text": "ساعت هوشمند", "path": "/products/smart-watch/" },
+      { "text": "لپ تاپ", "path": "/products/laptops/" }
+    ]
+  },
+  [
+    "0905-903-7721",
+    "realsiteco@gmail.com",
+    { "src": "/assets/map.png", "alt": "digitize map" }
+  ]
+]

@@ -38,7 +38,8 @@ export default function Home({ initProducts }) {
             tryAgainHandler={getProducts}
           />
           <div className="w-full h-fit flex justify-center items-center">
-            {(datas ? datas.pages !== 0 : initProducts.pages !== 0) && (
+            {((datas ? datas.pages !== 0 : initProducts.pages !== 0) ||
+              isLoading) && (
               <Pagination
                 pagesNumber={datas ? datas.pages : initProducts.pages}
               />
