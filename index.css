@@ -38,6 +38,17 @@
     }
 }
 
+@layer utilities {
+    .no-scroll::-webkit-scrollbar {
+        display: none;
+    }
+
+    .no-scroll {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+}
+
 * {
     -webkit-tap-highlight-color: transparent;
 }

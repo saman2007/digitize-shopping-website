@@ -10,7 +10,7 @@ const Colors = ({ datas }) => {
       <div className="flex flex-wrap">
         <Color color={"#fff"} colorName={"all"} changeAll />
 
-        {colors.map((data, index) => (
+        {colors?.map((data, index) => (
           <Color key={index} color={data} colorName={data} />
         ))}
       </div>

@@ -32,7 +32,7 @@ const RangeSlider = ({ minMaxValues, onChange, defaultValues }) => {
 
       setLeftPercent(percent);
     },
-    [rightPercent]
+    [rightPercent, minMaxValues]
   );
 
   const moveRightSlider = useCallback(
@@ -58,7 +58,7 @@ const RangeSlider = ({ minMaxValues, onChange, defaultValues }) => {
 
       setRightPercent(percent);
     },
-    [leftPercent]
+    [leftPercent, minMaxValues]
   );
 
   return (

@@ -2,9 +2,12 @@ import Dropdown from "../../../Dropdown/DropDown";
 import RangeSlider from "../../../RangeSlider/RangeSlider";
 import { useDispatch, useSelector } from "react-redux";
 import { filtersActions } from "../../../../store/Filters";
+import { useTransition } from "react";
 
 const PriceChanger = ({ datas }) => {
   const price = useSelector((store) => store.filters.price);
+  const allowedPrice = useSelector((store) => store.filters.allowedPrice);
+  const [isPending, transition] = useTransition();
   const dispatch = useDispatch();
 
   return (
@@ -13,10 +16,12 @@ const PriceChanger = ({ datas }) => {
         <div className="flex flex-col w-[90%] h-[30px] items-center justify-center">
           <RangeSlider
             defaultValues={{ minFill: 0, maxFill: 100 }}
-            minMaxValues={{ min: 13_000_000, max: 31_000_000 }}
+            minMaxValues={allowedPrice}
             onChange={(e) => {
-              const price = { min: e.minimumValue, max: e.maximumValue };
-              dispatch(filtersActions.changePrice(price));
+              transition(() => {
+                const price = { min: e.minimumValue, max: e.maximumValue };
+                dispatch(filtersActions.changePrice(price));
+              });
             }}
           />
         </div>

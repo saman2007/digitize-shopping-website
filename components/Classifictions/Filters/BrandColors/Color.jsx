@@ -34,7 +34,7 @@ const Color = ({ color, colorName, changeAll }) => {
       className={`w-[25px] mb-[5px] flex justify-center items-center mr-[5px] h-[25px] border-2 text-[12px] rounded-full border-solid transition-all duration-150 ${
         doesExist ? "border-slate-900" : "border-gray-300"
       }`}
-      style={{ backgroundColor: color }}
+      style={{ backgroundColor: `#${color}` }}
     >
       {changeAll ? "همه" : ""}
     </div>

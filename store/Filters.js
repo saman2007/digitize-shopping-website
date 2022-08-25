@@ -4,11 +4,13 @@ const filtersSlice = createSlice({
   name: "filters",
   initialState: {
     productsSortFilter: "محبوب ترین محصول",
-    productsFilters: ["تلفن همراه"],
+    productsFilters: ["تلفن همراه", "لپ تاپ", "ساعت هوشمند"],
     brandsFilter: ["all"],
     brandColors: ["all"],
-    price: { min: 13_000_000, max: 31_000_000 },
+    price: { min: 0, max: 0 },
     allAvailableColors: [],
+    allAvailableBrands: [],
+    allowedPrice: { min: 0, max: 0 },
   },
   reducers: {
     changeFilter: (state, action) => {
@@ -28,6 +30,12 @@ const filtersSlice = createSlice({
     },
     changePrice: (state, action) => {
       state.price = action.payload;
+    },
+    initializeFilters: (state, action) => {
+      state.allAvailableColors = action.payload.colors;
+      state.allAvailableBrands = action.payload.brands;
+      state.allowedPrice = action.payload.price;
+      state.price = action.payload.price;
     },
   },
 });

@@ -1,4 +1,6 @@
 const ProductColor = ({ isFirst, color }) => {
+  color = `#${color}`;
+
   return (
     <div
       className={`${
