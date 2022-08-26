@@ -54,7 +54,7 @@ const paginateArray = (array, page_size, page_number) => {
 
 //axios
 const axios = new Axios({
-  baseURL: typeof window === "object" && window.location.href + "api/",
+  baseURL: typeof window === "object" && window.location.origin + "/api/",
 });
 
 //a function to return the full products and its datas
