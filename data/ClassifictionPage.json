@@ -1,0 +1,59 @@
+[
+  {
+    "title": "تلفن همراه",
+    "cover": "/assets/mobiles.png",
+    "alt": "تلفن همراه",
+    "items": [
+      {
+        "title": "اپل",
+        "cover": "/assets/apple-logo.png",
+        "path": "/products/phones/apple/",
+        "alt": "اپل"
+      }
+    ]
+  },
+  {
+    "title": "لپ تاپ",
+    "cover": "/assets/laptops.png",
+    "alt": "لپ تاپ",
+    "items": [
+      {
+        "title": "ایسر",
+        "cover": "/assets/acer-logo.png",
+        "path": "/products/laptops/acer/",
+        "alt": "ایسر"
+      },
+      {
+        "title": "ایسوز",
+        "cover": "/assets/asus-logo.png",
+        "path": "/products/laptops/asus/",
+        "alt": "ایسوز"
+      },
+      {
+        "title": "لنوو",
+        "cover": "/assets/lenovo-logo.png",
+        "path": "/products/laptops/lenovo/",
+        "alt": "لنوو"
+      }
+    ]
+  },
+  {
+    "title": "ساعت هوشمند",
+    "cover": "/assets/smart-watches.png",
+    "alt": "ساعت هوشمند",
+    "items": [
+      {
+        "title": "اپل",
+        "cover": "/assets/apple-logo.png",
+        "path": "/products/smart-watches/apple/",
+        "alt": "اپل"
+      },
+      {
+        "title": "امیزفیت",
+        "cover": "/assets/amazfit-logo.png",
+        "path": "/products/smart-watches/amazfit/",
+        "alt": "امیزفیت"
+      }
+    ]
+  }
+]

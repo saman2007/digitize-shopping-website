@@ -3,7 +3,7 @@
     "text": "خانه",
     "path": "/"
   },
-  { "text": "محصولات", "path": "/products" },
+  { "text": "دسته بندی", "path": "/products" },
   {
     "text": "تلفن همراه",
     "path": "/products/phones"
