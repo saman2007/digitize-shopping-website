@@ -41,6 +41,13 @@ const filtersSlice = createSlice({
     changeAddress: (state, action) => {
       state.address = action.payload;
     },
+    resetFilters: (state) => {
+      state.price = state.allowedPrice;
+      state.brandsFilter = ["all"];
+      state.brandColors = ["all"];
+      state.productsSortFilter = "محبوب ترین محصول";
+      state.productsFilters = ["تلفن همراه", "لپ تاپ", "ساعت هوشمند"];
+    },
   },
 });
 

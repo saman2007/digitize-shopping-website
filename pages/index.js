@@ -19,6 +19,7 @@ export default function Home({ initProducts }) {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    dispatch(filtersActions.resetFilters());
     dispatch(filtersActions.changeAddress("خانه"));
     dispatch(
       filtersActions.initializeFilters({
@@ -58,7 +59,8 @@ export default function Home({ initProducts }) {
           />
           <div className="w-full h-fit flex justify-center items-center">
             {(datas ? datas.pages !== 0 : initProducts.pages !== 0) &&
-              !isLoading && !hasError && (
+              !isLoading &&
+              !hasError && (
                 <Pagination
                   pagesNumber={datas ? datas.pages : initProducts.pages}
                 />
