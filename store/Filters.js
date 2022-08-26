@@ -11,6 +11,7 @@ const filtersSlice = createSlice({
     allAvailableColors: [],
     allAvailableBrands: [],
     allowedPrice: { min: 0, max: 0 },
+    address: "",
   },
   reducers: {
     changeFilter: (state, action) => {
@@ -36,6 +37,9 @@ const filtersSlice = createSlice({
       state.allAvailableBrands = action.payload.brands;
       state.allowedPrice = action.payload.price;
       state.price = action.payload.price;
+    },
+    changeAddress: (state, action) => {
+      state.address = action.payload;
     },
   },
 });

@@ -2,6 +2,7 @@
   {
     "title": "تلفن همراه",
     "cover": "/assets/mobiles.png",
+    "path": "/products/phones/",
     "alt": "تلفن همراه",
     "items": [
       {
@@ -15,6 +16,7 @@
   {
     "title": "لپ تاپ",
     "cover": "/assets/laptops.png",
+    "path": "/products/laptops/",
     "alt": "لپ تاپ",
     "items": [
       {
@@ -40,6 +42,7 @@
   {
     "title": "ساعت هوشمند",
     "cover": "/assets/smart-watches.png",
+    "path": "/products/smart-watches/",
     "alt": "ساعت هوشمند",
     "items": [
       {

@@ -19,6 +19,7 @@ export default function Home({ initProducts }) {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    dispatch(filtersActions.changeAddress("خانه"));
     dispatch(
       filtersActions.initializeFilters({
         colors: initProducts.colors,
@@ -38,8 +39,8 @@ export default function Home({ initProducts }) {
         >
           <Classifictions classifictions={classifictions} />
           <div className="w-full flex sm:flex-col overflow-x-auto items-center gap-x-[10px] justify-center">
-            {bannerDatas.map((data) => (
-              <Link href={data.path}>
+            {bannerDatas.map((data, index) => (
+              <Link href={data.path} key={index}>
                 <a className="w-[220px] h-[220px] block relative">
                   <Banner src={data.src} alt={data.alt} />
                 </a>
