@@ -8,17 +8,22 @@ import Spacer from "../components/Spacer/Spacer";
 import SpacerBottom from "../components/Spacer/SpacerBottom";
 import Footer from "../components/Footer/Footer";
 import footerItems from "../data/FooterItems.json";
+import ContextContainer from "../store/Context";
+import Backdrop from "../components/BackDrop/Backdrop";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <Provider store={store}>
-      <Navigation items={navItems} />
-      <Spacer />
-      <Component {...pageProps} />
-      <Footer items={footerItems} />
-      <SpacerBottom />
-      <BottomNavigation />
-    </Provider>
+    <ContextContainer>
+      <Provider store={store}>
+        <Backdrop />
+        <Navigation items={navItems} />
+        <Spacer />
+        <Component {...pageProps} />
+        <Footer items={footerItems} />
+        <SpacerBottom />
+        <BottomNavigation />
+      </Provider>
+    </ContextContainer>
   );
 }
 

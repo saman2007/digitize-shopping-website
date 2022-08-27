@@ -12,9 +12,18 @@ import useProducts from "../hooks/useProducts";
 import bannerDatas from "../data/Banners.json";
 import Link from "next/link";
 import Banner from "../components/Banner/Banner";
+import BottomModal from "../components/BottomModal/BottomModal";
+import { useContext } from "react";
+import { context } from "../store/Context";
+import { useState } from "react";
+import OpenClassifictionModalButton from "../components/Classifictions/OpenClassifictionModalButton";
+import OpenFiltersModalButton from "../components/Filters/openFiltersModalButton";
 
 export default function Home({ initProducts }) {
   const page = useSelector((store) => store.pagination.currentPage);
+  const ctx = useContext(context);
+  const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
+  const [isSortModalOpen, setIsSortModalOpen] = useState(false);
   const { getProducts, hasError, isLoading, datas } = useProducts(false, page);
   const dispatch = useDispatch();
 
@@ -30,16 +39,59 @@ export default function Home({ initProducts }) {
     );
   }, []);
 
+  useEffect(() => {
+    if (isFilterModalOpen) {
+      ctx.setOnBackdropClickHandler(() =>
+        setIsFilterModalOpen.bind(null, false)
+      );
+      ctx.openBackdrop();
+    } else ctx.closeBackdrop();
+  }, [isFilterModalOpen]);
+
+  useEffect(() => {
+    if (isSortModalOpen) {
+      ctx.setOnBackdropClickHandler(() => setIsSortModalOpen.bind(null, false));
+      ctx.openBackdrop();
+    } else ctx.closeBackdrop();
+  }, [isSortModalOpen]);
+
   return (
     <>
-      <div className="grid grid-cols-[repeat(8,auto)] sm:grid-cols-[repeat(7,auto),220px] gap-[15px] grid-rows-[50px,repeat(7,auto)] w-full p-[15px] ">
+      <BottomModal
+        isOpen={isFilterModalOpen}
+        closeModalHandler={setIsFilterModalOpen.bind(null, false)}
+        dir="rtl"
+      >
+        <Classifictions classifictions={classifictions} />
+      </BottomModal>
+      <BottomModal
+        isOpen={isSortModalOpen}
+        closeModalHandler={setIsSortModalOpen.bind(null, false)}
+        dir="rtl"
+      >
         <FiltersContainer filters={SortFilters} />
+      </BottomModal>
+      <div className="grid grid-cols-[repeat(8,auto)] sm:grid-cols-[repeat(7,auto),220px] gap-[15px] grid-rows-[50px,repeat(7,auto)] w-full p-[15px] ">
+        <div className="col-start-1 sm:col-end-8 col-end-9 row-start-1 row-end-2 w-full h-full hidden sm:flex overflow-x-auto">
+          <FiltersContainer filters={SortFilters} />
+        </div>
         <div
-          className="flex flex-col col-start-1 sm:col-start-8 col-end-9 row-start-2 row-end-3 sm:row-start-1 sm:row-end-[8] "
+          className="flex flex-col col-start-1 sm:col-start-8 col-end-9 row-end-3 row-start-1 sm:row-end-[8] "
           dir="rtl"
         >
-          <Classifictions classifictions={classifictions} />
-          <div className="w-full flex sm:flex-col overflow-x-auto items-center gap-x-[10px] justify-center">
+          <div className="sm:block hidden">
+            <Classifictions classifictions={classifictions} />
+          </div>
+          <div className="w-full h-full items-center flex sm:hidden gap-x-[10px] justify-center">
+            <OpenClassifictionModalButton
+              openHandler={setIsFilterModalOpen.bind(null, true)}
+            />
+            <OpenFiltersModalButton
+              openHandler={setIsSortModalOpen.bind(null, true)}
+            />
+          </div>
+
+          <div className="w-full hidden sm:flex sm:flex-col overflow-x-auto items-center gap-x-[10px] justify-center">
             {bannerDatas.map((data, index) => (
               <Link href={data.path} key={index}>
                 <a className="w-[220px] h-[220px] block relative">
@@ -49,8 +101,7 @@ export default function Home({ initProducts }) {
             ))}
           </div>
         </div>
-
-        <div className="col-start-1 sm:col-end-8 col-end-9 row-start-4 sm:row-start-2 row-end-[7]">
+        <div className="col-start-1 sm:col-end-8 col-end-9 row-start-3 sm:row-start-2 row-end-[8]">
           <Products
             datas={datas ? datas.datas : initProducts.datas}
             hasError={hasError}

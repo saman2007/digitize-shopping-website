@@ -1,7 +1,7 @@
-import HeartIcon from "@heroicons/react/solid/HeartIcon";
-import ShoppingBag from "@heroicons/react/solid/ShoppingBagIcon";
-import ViewGrid from "@heroicons/react/solid/ViewGridIcon";
-import HomeIcon from "@heroicons/react/solid/HomeIcon";
+import HeartIcon from "@heroicons/react/24/solid/HeartIcon";
+import ShoppingBag from "@heroicons/react/24/solid/ShoppingBagIcon";
+import ViewGrid from "@heroicons/react/24/solid/Squares2X2Icon";
+import HomeIcon from "@heroicons/react/24/solid/HomeIcon";
 import Link from "next/link";
 import { useRouter } from "next/router";
 

@@ -1,4 +1,4 @@
-import ArrowDown from "@heroicons/react/solid/ChevronDownIcon";
+import ArrowDown from "@heroicons/react/24/solid/ChevronDownIcon";
 import { useEffect } from "react";
 import { useRef } from "react";
 import { useState } from "react";

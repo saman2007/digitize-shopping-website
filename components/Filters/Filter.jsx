@@ -7,7 +7,7 @@ const Filter = ({ text }) => {
 
   return (
     <div
-      className="mr-[10px] relative p-[5px] cursor-pointer"
+      className="mr-[10px] sm:mb-0 mb-[10px] relative p-[5px] cursor-pointer"
       onClick={() => {
         dispatch(
           filtersActions.changeFilter({
@@ -26,7 +26,7 @@ const Filter = ({ text }) => {
       <p
         className={`${
           currentSort === text ? "text-slate-800" : "text-gray-300"
-        } text-[16px] font-yekan-bl font-bold transition-all duration-300 whitespace-nowrap`}
+        } sm:text-[16px] text-[20px] font-yekan-bl font-bold transition-all duration-300 whitespace-nowrap`}
       >
         {text}
       </p>

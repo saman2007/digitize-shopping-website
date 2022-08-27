@@ -2,8 +2,8 @@ import Column from "./Column";
 import Logo from "../../components/Navigation/Logo";
 import AboutText from "./AboutText";
 import Map from "./Map";
-import PhoneIcon from "@heroicons/react/solid/PhoneIcon";
-import AtSymbolIcon from "@heroicons/react/solid/AtSymbolIcon";
+import PhoneIcon from "@heroicons/react/24/solid/PhoneIcon";
+import AtSymbolIcon from "@heroicons/react/24/solid/AtSymbolIcon";
 import Items from "./Items";
 
 const Footer = ({ items }) => {

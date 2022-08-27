@@ -1,4 +1,4 @@
-import XIcon from "@heroicons/react/outline/XIcon";
+import XIcon from "@heroicons/react/24/outline/XMarkIcon";
 
 const CloseSearchBar = ({ onClick }) => (
   <XIcon
