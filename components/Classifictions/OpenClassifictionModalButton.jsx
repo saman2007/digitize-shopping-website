@@ -1,4 +1,3 @@
-import { useSelector } from "react-redux";
 import FunnelIcon from "@heroicons/react/24/outline/FunnelIcon";
 
 const OpenClassifictionModalButton = ({ openHandler }) => {

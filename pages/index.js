@@ -17,7 +17,7 @@ import { useContext } from "react";
 import { context } from "../store/Context";
 import { useState } from "react";
 import OpenClassifictionModalButton from "../components/Classifictions/OpenClassifictionModalButton";
-import OpenFiltersModalButton from "../components/Filters/openFiltersModalButton";
+import OpenFiltersModalButton from "../components/Filters/OpenFiltersModalButton";
 
 export default function Home({ initProducts }) {
   const page = useSelector((store) => store.pagination.currentPage);
