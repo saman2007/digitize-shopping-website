@@ -10,6 +10,18 @@
         "cover": "/assets/apple-logo.png",
         "path": "/products/phones/apple/",
         "alt": "اپل"
+      },
+      {
+        "title": "شیاومی",
+        "cover": "/assets/xiaomi-logo.png",
+        "path": "/products/phones/xiaomi/",
+        "alt": "شیاومی"
+      },
+      {
+        "title": "سامسونگ",
+        "cover": "/assets/samsung-logo.png",
+        "path": "/products/phones/samsung/",
+        "alt": "سامسونگ"
       }
     ]
   },

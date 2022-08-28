@@ -9,7 +9,7 @@ const NavItem = ({ text, path, index }) => {
       <Link href={path}>
         <a
           className={`text-[16px] flex text-slate-800 w-full h-full whitespace-nowrap ${
-            router.pathname === path ? "font-black " : "font-medium"
+            router.asPath === path ? "font-black " : "font-medium"
           }`}
         >
           {text}
