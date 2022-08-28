@@ -57,28 +57,40 @@ const axios = new Axios({
   baseURL: typeof window === "object" && window.location.origin + "/api/",
 });
 
-//a function to return the full products and its datas
-const getAllProducts = () => {
+const getAllProductsInfos = (products = productsDatas) => {
   let allColors = [];
   let allBrands = [];
   let allPrices = [];
+  let allKinds = [];
 
   //push the brand, colors and price of products to the arrays
-  productsDatas.forEach((pr) => {
+  products.forEach((pr) => {
     allBrands.push(pr.brand);
     allColors.push(pr.colors);
     allPrices.push(pr.price);
+    allKinds.push(pr.kind);
   });
 
   //remove all the same values of these arrays
   allColors = [...new Set(allColors.flat())];
   allBrands = [...new Set(allBrands)];
   allPrices = [...new Set(allPrices)];
+  allKinds = [...new Set(allKinds)];
 
   //get the lowest and highest price
   let minPrice = Math.min(...allPrices);
   let maxPrice = Math.max(...allPrices);
 
+  return {
+    price: { min: minPrice, max: maxPrice },
+    colors: allColors,
+    brands: allBrands,
+    kinds: allKinds,
+  };
+};
+
+//a function to return the full products and its datas
+const getAllProducts = () => {
   //sort the products datas by popularity
   productsDatas.sort(sortByPopularity);
 
@@ -87,35 +99,95 @@ const getAllProducts = () => {
 
   return {
     datas: paginateArray(productsDatas, 10, 1),
-    colors: allColors,
-    brands: allBrands,
     pages,
-    price: { min: minPrice, max: maxPrice },
     thisPage: 1,
+    ...getAllProductsInfos(),
   };
 };
 
 //a function to return the products base the filters
-const getFilteredProducts = (filters) => {
+const getFilteredProducts = (filters, getPagesInfos) => {
   const products = productsDatas.filter((data) => {
-    const splitedPrice = filters.price.split(",");
-    const splitedKinds = filters.kinds.split(",");
-    const splitedColors = filters.colors.split(",");
-    const splitedBrands = filters.brands.split(",");
+    let isProductOk = false;
 
-    if (
-      data.price >= Number(splitedPrice[0]) &&
-      data.price <= Number(splitedPrice[1]) &&
-      splitedKinds.includes(data.kind) &&
-      (splitedColors.includes("all") ||
-        data.colors.some((color) => splitedColors.includes(color))) &&
-      (splitedBrands.includes("all") || splitedBrands.includes(data.brand))
-    )
-      return true;
-    else return false;
+    for (const key in filters) {
+      if (key === "price") {
+        const splitedPrice = filters.price.split(",");
+
+        if (
+          data.price >= Number(splitedPrice[0]) &&
+          data.price <= Number(splitedPrice[1])
+        ) {
+          isProductOk = true;
+        } else {
+          isProductOk = false;
+          break;
+        }
+      } else if (key === "kinds") {
+        const splitedKinds = filters.kinds.split(",");
+
+        if (splitedKinds.includes(data.kind)) {
+          isProductOk = true;
+        } else {
+          isProductOk = false;
+          break;
+        }
+      } else if (key === "colors") {
+        const splitedColors = filters.colors.split(",");
+
+        if (
+          splitedColors.includes("all") ||
+          data.colors.some((color) => splitedColors.includes(color))
+        ) {
+          isProductOk = true;
+        } else {
+          isProductOk = false;
+          break;
+        }
+      } else if (key === "brands") {
+        const splitedBrands = filters.brands.split(",");
+
+        if (
+          splitedBrands.includes("all") ||
+          splitedBrands.includes(data.brand) ||
+          splitedBrands.some(
+            (value) =>
+              data.brand.substring(
+                data.brand.indexOf("(") + 1,
+                data.brand.lastIndexOf(")")
+              ) === value
+          )
+        ) {
+          isProductOk = true;
+        } else {
+          isProductOk = false;
+          break;
+        }
+      } else if (key === "path") {
+        if (data.path === filters.path) {
+          isProductOk = true;
+        } else {
+          isProductOk = false;
+          break;
+        }
+      }
+    }
+
+    return isProductOk;
   });
 
-  return products;
+  if (!getPagesInfos) return products;
+  else {
+    //paginate the products datas
+    const pages = Math.ceil(products.length / 10);
+
+    return {
+      datas: paginateArray(products, 10, 1),
+      pages,
+      thisPage: 1,
+      ...getAllProductsInfos(products)
+    };
+  }
 };
 
 //a function to sort the products
@@ -144,5 +216,6 @@ export {
   getAllProducts,
   getFilteredProducts,
   sortProducts,
+  getAllProductsInfos,
   axios,
 };

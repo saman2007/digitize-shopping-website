@@ -130,5 +130,71 @@
     "brand": "اپل(apple)",
     "popularity": 5,
     "visits": 1000
+  },
+  {
+    "colors": ["faf1e1"],
+    "kind": "تلفن همراه",
+    "name": "شیاومی 11T pro",
+    "price": 12000000,
+    "path": "/products/phones/xiaomi/xiaomi-11T-pro",
+    "cover": "/assets/xiaomi-11T-pro.png",
+    "brand": "شیاومی(xiaomi)",
+    "popularity": 4.0,
+    "visits": 923
+  },
+  {
+    "colors": ["000"],
+    "kind": "تلفن همراه",
+    "name": "شیاومی blac shark 4",
+    "price": 14000000,
+    "path": "/products/phones/xiaomi/xiaomi-black-shark-4",
+    "cover": "/assets/xiaomi-black-shark-4.png",
+    "brand": "شیاومی(xiaomi)",
+    "popularity": 4.53,
+    "visits": 1231
+  },
+  {
+    "colors": ["53565b"],
+    "kind": "تلفن همراه",
+    "name": "شیاومی Redmi Note 11 Pro 5G",
+    "price": 9000000,
+    "path": "/products/phones/xiaomi/xiaomi-redmi-note-11-pro-5g",
+    "cover": "/assets/xiaomi-redmi-note-11-pro-5g.png",
+    "brand": "شیاومی(xiaomi)",
+    "popularity": 3.5,
+    "visits": 1023
+  },
+  {
+    "colors": ["2F3B62"],
+    "kind": "تلفن همراه",
+    "name": "شیاومی Redmi Note 9 c",
+    "price": 4000000,
+    "path": "/products/phones/xiaomi/xiaomi-redmi-note-9-c",
+    "cover": "/assets/xiaomi-redmi-note-9-c.png",
+    "brand": "شیاومی(xiaomi)",
+    "popularity": 3.7,
+    "visits": 2034
+  },
+  {
+    "colors": ["424659", "6078B4"],
+    "kind": "تلفن همراه",
+    "name": "شیاومی poco x3 pro",
+    "price": 9000000,
+    "path": "/products/phones/xiaomi/xiaomi-poco-x3-pro",
+    "cover": "/assets/xiaomi-poco-x3-pro.png",
+    "brand": "شیاومی(xiaomi)",
+    "popularity": 4.9,
+    "visits": 5667
+  },
+  {
+    "colors": ["906971", "fff", "343434", "48635e"],
+    "kind": "تلفن همراه",
+    "name": "سامسونگ s22 ultra",
+    "price": 34000000,
+    "path": "/products/phones/samsung/samsung-s22-ultra",
+    "cover": "/assets/samsung-s22-ultra.png",
+    "brand": "سامسونگ(samsung)",
+    "popularity": 5,
+    "visits": 8604
   }
 ]

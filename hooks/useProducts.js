@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { axios } from "../helpers/helpers";
 import { paginationAction } from "../store/Pagination";
 
-const useProducts = (init, page) => {
+const useProducts = (init, page, initQueries) => {
   const [products, setProducts] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [hasError, setHasError] = useState(false);
