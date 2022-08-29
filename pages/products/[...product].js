@@ -1,10 +1,16 @@
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import ProductsLayout from "../../components/ForProductsPage/ProductsLayout";
-import {
-  getAllProductsInfos,
-  getFilteredProducts,
-} from "../../helpers/helpers";
+import { getFilteredProducts } from "../../helpers/helpers";
+import { filtersActions } from "../../store/Filters";
 
 const ProductsPage = ({ products }) => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(filtersActions.changeAddress(products.kinds[0]));
+  }, [products]);
+
   return <ProductsLayout initProducts={products} />;
 };
 
@@ -20,7 +26,7 @@ export async function getServerSideProps(context) {
   }
 
   const filters = {
-    kinds: originKinds[context.params.product[0]],
+    kinds: originKinds[context.params.product[0]] || " ",
   };
 
   if (context.params.product[1]) filters.brands = context.params.product[1];

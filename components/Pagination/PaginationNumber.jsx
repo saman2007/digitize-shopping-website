@@ -23,7 +23,7 @@ const PaginationNumber = ({ number }) => {
   return (
     <div
       onClick={goToPage}
-      className={`text-[18px] transition-all duration-300 flex justify-center items-center px-[5px] w-fit max-h-[30px] min-h-[30px] ${
+      className={`text-[18px] ${number !== 1 ? "mr-[5px]" : ""} transition-all duration-300 flex justify-center items-center px-[5px] w-fit max-h-[30px] min-h-[30px] ${
         currentPage === number ? "bg-orange-600 text-white" : "text-slate-800"
       } rounded-[5px] cursor-pointer`}
       ref={paginateNumRef}

@@ -3,7 +3,7 @@
     "title": "محصولات",
     "datas": [
       { "text": "تلفن همراه", "path": "/products/phones/" },
-      { "text": "ساعت هوشمند", "path": "/products/smart-watch/" },
+      { "text": "ساعت هوشمند", "path": "/products/smart-watches/" },
       { "text": "لپ تاپ", "path": "/products/laptops/" }
     ]
   },

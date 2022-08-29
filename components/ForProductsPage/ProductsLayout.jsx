@@ -28,16 +28,15 @@ const ProductsLayout = ({ initProducts }) => {
 
   useEffect(() => {
     dispatch(filtersActions.resetFilters());
-    dispatch(filtersActions.changeAddress("خانه"));
     dispatch(
       filtersActions.initializeFilters({
         colors: initProducts.colors,
         brands: initProducts.brands,
         price: initProducts.price,
-        kinds: initProducts.kinds
+        kinds: initProducts.kinds,
       })
     );
-  }, []);
+  }, [initProducts]);
 
   useEffect(() => {
     if (isFilterModalOpen) {
@@ -55,6 +54,10 @@ const ProductsLayout = ({ initProducts }) => {
     } else ctx.closeBackdrop();
   }, [isSortModalOpen]);
 
+  useEffect(() => {
+    document.querySelector(".products").scrollIntoView({ behavior: "smooth" });
+  }, [datas, initProducts]);
+
   return (
     <>
       <BottomModal
@@ -71,7 +74,7 @@ const ProductsLayout = ({ initProducts }) => {
       >
         <FiltersContainer filters={SortFilters} />
       </BottomModal>
-      <div className="grid grid-cols-[repeat(8,auto)] sm:grid-cols-[repeat(7,auto),220px] gap-[15px] grid-rows-[50px,repeat(7,auto)] w-full p-[15px] ">
+      <div className="grid products mb-[35px] grid-cols-[repeat(8,auto)] sm:grid-cols-[repeat(7,auto),220px] grid-rows-[50px,repeat(7,auto)] w-full p-[15px] ">
         <div className="col-start-1 sm:col-end-8 col-end-9 row-start-1 row-end-2 w-full h-full hidden sm:flex overflow-x-auto">
           <FiltersContainer filters={SortFilters} />
         </div>
@@ -82,7 +85,7 @@ const ProductsLayout = ({ initProducts }) => {
           <div className="sm:block hidden">
             <Classifictions classifictions={classifictions} />
           </div>
-          <div className="w-full h-full items-center flex sm:hidden gap-x-[10px] justify-center">
+          <div className="w-full h-full items-center flex sm:hidden justify-center">
             <OpenClassifictionModalButton
               openHandler={setIsFilterModalOpen.bind(null, true)}
             />
@@ -91,7 +94,7 @@ const ProductsLayout = ({ initProducts }) => {
             />
           </div>
 
-          <div className="w-full hidden sm:flex sm:flex-col overflow-x-auto items-center gap-x-[10px] justify-center">
+          <div className="w-full hidden sm:flex sm:flex-col overflow-x-auto items-center space-x-[15px] justify-center">
             {bannerDatas.map((data, index) => (
               <Link href={data.path} key={index}>
                 <a className="w-[220px] h-[220px] block relative">
@@ -101,7 +104,7 @@ const ProductsLayout = ({ initProducts }) => {
             ))}
           </div>
         </div>
-        <div className="col-start-1 sm:col-end-8 col-end-9 row-start-3 sm:row-start-2 row-end-[8]">
+        <div className="col-start-1 mt-[15px] sm:col-end-8 col-end-9 row-start-3 sm:row-start-2 mr-[10px] row-end-[8]">
           <Products
             datas={datas ? datas.datas : initProducts.datas}
             hasError={hasError}

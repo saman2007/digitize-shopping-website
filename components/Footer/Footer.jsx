@@ -10,7 +10,7 @@ const Footer = ({ items }) => {
   return (
     <footer
       dir="rtl"
-      className="flex gap-[25px] bg-stone-50 min-h-[200px] w-full p-[30px] flex-col sm:flex-row sm:justify-between"
+      className="flex space-y-[25px] bg-stone-50 min-h-[200px] w-full p-[30px] flex-col sm:flex-row sm:justify-between"
     >
       <Column>
         <Logo isFooter />

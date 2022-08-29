@@ -10,9 +10,9 @@ const Pagination = ({ pagesNumber }) => {
   }
 
   return (
-    <div className="flex justify-center items-center gap-x-[5px] sm:w-auto w-full">
+    <div className="flex justify-center items-center sm:w-auto w-full">
       <NextPageButton pagesNumber={pagesNumber} />
-      <div className="pb-[4px] px-[5px] flex gap-x-[5px] max-w-[150px] sm:max-w-[250px] h-full overflow-x-auto pagination" style={{direction: "rtl"}}>{paginationItems}</div>
+      <div className="pb-[4px] px-[5px] flex mr-[5px] max-w-[150px] sm:max-w-[250px] h-full overflow-x-auto pagination" style={{direction: "rtl"}}>{paginationItems}</div>
       <PreviousPageButton />
     </div>
   );

@@ -18,7 +18,7 @@ const Product = ({ colors, kind, name, price, path, cover }) => {
       onMouseLeave={setIsHovering.bind(this, false)}
       onTouchStart={setIsHovering.bind(this, true)}
       onTouchEnd={setIsHovering.bind(this, false)}
-      className="w-[210px] h-[340px] rounded-[10px] p-[5px] bg-stone-50 transition-all duration-300 shadow-[0px_3.44685px_6.8937px_rgba(0,0,0,0.08)] hover:shadow-[0px_3.44685px_15.8937px_rgba(0,0,0,0.08)] flex flex-col"
+      className="w-[210px] h-[340px] my-[10px] mx-[5px] rounded-[10px] p-[5px] bg-stone-50 transition-all duration-300 shadow-[0px_3.44685px_6.8937px_rgba(0,0,0,0.08)] hover:shadow-[0px_3.44685px_15.8937px_rgba(0,0,0,0.08)] flex flex-col"
     >
       <ProductImage src={cover} />
       <div className="w-full flex-grow">

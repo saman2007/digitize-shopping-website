@@ -15,7 +15,7 @@ const NextButton = ({ pagesNumber }) => {
   return (
     <NextIcon
       onClick={goToNextPage}
-      className={`${
+      className={`mr-[5px] ${
         currentPage === pagesNumber ? "fill-gray-300" : "fill-slate-800"
       } cursor-pointer`}
     />

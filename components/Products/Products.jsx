@@ -2,7 +2,7 @@ import Product from "./Product/Product";
 
 const Products = ({ datas, hasError, isLoading, tryAgainHandler }) => {
   return (
-    <div className=" mb-[30px] flex-wrap justify-around gap-[10px] flex w-full">
+    <div className="mb-[30px] flex-wrap justify-around flex w-full">
       {datas !== null && !hasError && !isLoading ? (
         datas.length !== 0 ? (
           datas.map((data) => <Product {...data} key={data.name} />)
@@ -17,8 +17,8 @@ const Products = ({ datas, hasError, isLoading, tryAgainHandler }) => {
         </p>
       ) : (
         hasError && (
-          <div className="flex gap-y-[10px] flex-col justify-center items-center">
-            <p className="text-[20px] font-yekan-heavy text-orange-700">
+          <div className="flex flex-col justify-center items-center">
+            <p className="text-[20px] mb-[10px] font-yekan-heavy text-orange-700">
               مشکلی در دریافت محصولات پیش آمد. لطفا دوباره تلاش کنید
             </p>
             <button

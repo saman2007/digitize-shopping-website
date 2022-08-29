@@ -12,7 +12,7 @@ const ProductsPage = () => {
   }, []);
 
   return (
-    <div className="flex flex-col gap-y-[20px] p-[20px] sm:items-center my-[50px]">
+    <div className="flex flex-col p-[20px] sm:items-center my-[50px]">
       <AllFields datas={classifictionDatas} />
     </div>
   );
