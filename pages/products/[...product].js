@@ -39,10 +39,10 @@ const originKinds = {
 const getPagePhotosAndReview = async (productName) => {
   const root = process.cwd();
   let notFound = false;
-  const allDatas = await fs
+  const allDatas = { pageImages: [], review: null }
+  await fs
     .readdir(root + `/public/about-${productName}`, { encoding: "utf8" })
     .then((files) => {
-      const allDatas = { pageImages: [], review: null };
       files.forEach((value) => {
         const image = value.split(".")[0];
         const imageInfos = {
@@ -54,9 +54,8 @@ const getPagePhotosAndReview = async (productName) => {
         }
       });
 
-      return allDatas;
     })
-    .catch((reason) => (notFound = true));
+    .catch(() => (notFound = true));
 
   if (notFound) return 404;
 
@@ -67,7 +66,7 @@ const getPagePhotosAndReview = async (productName) => {
     .then((value) => {
       allDatas.review = value;
     })
-    .catch((reason) => {
+    .catch(() => {
       allDatas.review = null;
     });
 
