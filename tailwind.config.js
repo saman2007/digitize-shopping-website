@@ -18,6 +18,9 @@ module.exports = {
       transitionTimingFunction: {
         "no-delay": "cubic-bezier(0, 0, 0, 0)"
       },
+      screens: {
+        "very-sm" : "540px"
+      }
     },
     colors: {
       orange: {

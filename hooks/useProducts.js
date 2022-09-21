@@ -4,8 +4,10 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { axios } from "../helpers/helpers";
 import { paginationAction } from "../store/Pagination";
+import { useRouter } from "next/router";
 
-const useProducts = (init, page, initQueries) => {
+const useProducts = (init, page) => {
+  const router = useRouter();
   const [products, setProducts] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [hasError, setHasError] = useState(false);
@@ -19,14 +21,16 @@ const useProducts = (init, page, initQueries) => {
   const dispatch = useDispatch();
 
   const getFilters = () => {
-    return {
+    const filters = {
       price: `${prices.min},${prices.max}`,
       kinds: kinds.join(","),
-      brands: brands.join(","),
+      brands: router.query?.product?.[1] || brands.join(","),
       colors: colors.join(","),
       sort: sortText,
       page,
     };
+
+    return filters;
   };
 
   const getProducts = (abortController) => {

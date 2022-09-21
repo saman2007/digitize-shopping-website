@@ -1,0 +1,11 @@
+paragraphs:
+<p class="mb-[20px]">paragraph should be wrote here</p>
+
+titles:
+<h3 class="text-[20px] mb-[5px]">title should be here</h3>
+
+images:
+<img src="/write the src of product after the first /" class="mb-[20px] max-h-[800px] max-w-[900px] m-auto" alt="write the name of product" />
+
+example of img tag:
+<img src="/about-iphone-13-pro-max/iphone13-pro-max-5.jpg" class="mb-[20px] max-h-[800px] max-w-[900px] m-auto" alt="iphone-13-pro-max" />

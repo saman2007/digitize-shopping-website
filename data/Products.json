@@ -36,12 +36,22 @@
     "colors": ["a7c1d8", "53524e", "f9e7cf", "f1f2ed", "576856"],
     "kind": "تلفن همراه",
     "name": "آیفون 13 پرو مکس",
+    "enName": "Apple iphone 13 pro max",
     "price": 31000000,
     "path": "/products/phones/apple/iphone-13-pro-max",
     "cover": "/assets/iphone-13-pro-max.png",
+    "attributes": [
+      { "title": "حافظه داخلی", "value": "128 گیگابایت" },
+      { "title": "اندازه صفحه نمایش", "value": "6 اینچ" },
+      { "title": "شبکه های ارتباطی", "value": "2g, 3g, 4g, 5g" },
+      { "title": "حافظه رم", "value": "6 گیگابایت" }
+    ],
     "brand": "اپل(apple)",
     "popularity": 5,
-    "visits": 2093
+    "visits": 2093,
+    "seller": "دیجیتایز",
+    "sendBy": "پست ایران",
+    "warranty": "دو سال گارانتی آونگ"
   },
   {
     "colors": ["bf0013", "faf6f2", "232a31"],
