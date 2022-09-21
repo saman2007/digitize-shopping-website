@@ -10,13 +10,15 @@ const SubImage = ({ src, alt, isSelected, selectImage }) => {
         onClick={selectImage}
       >
         <div className="w-full h-full relative">
-          <Image
-            src={src}
-            alt={alt}
-            objectFit="contain"
-            layout="fill"
-            className="rounded-[5px]"
-          />
+          {src && (
+            <Image
+              src={src}
+              alt={alt}
+              objectFit="contain"
+              layout="fill"
+              className="rounded-[5px]"
+            />
+          )}
         </div>
       </div>
       <div className="mr-[10px]"></div>
