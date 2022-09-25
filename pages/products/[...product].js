@@ -6,7 +6,7 @@ import { getFilteredProducts } from "../../helpers/helpers";
 import { filtersActions } from "../../store/Filters";
 import classifictionDatas from "../../data/Classifictions.json";
 import textOfPaths from "../../data/TextOfPaths.json";
-const fs = require("fs");
+const fs = require("fs/promises");
 const path = require("path");
 
 const ProductsPage = ({ products, product }) => {
@@ -37,28 +37,30 @@ const originKinds = {
   "smart-watches": "ساعت هوشمند",
 };
 
-const getPagePhotosAndReview = (productName) => {
+const getPagePhotosAndReview = async (productName) => {
   const allDatas = { pageImages: [], review: null };
-  const dirRelativeToPublicFolder = `about-${productName}`;
 
-  const dir = path.resolve("./public", dirRelativeToPublicFolder);
+  try {
+    const dirRelativeToPublicFolder = `about-${productName}`;
+    const dir = path.resolve("./public", dirRelativeToPublicFolder);
+    const filenames = await fs.readdir(dir, { encoding: "utf8" });
 
-  const filenames = fs.readdirSync(dir);
-
-  filenames.forEach((name) => {
-    if (!isNaN(Number(name.split(".")[0]))) {
-      allDatas.pageImages.push({
-        src: `/${dirRelativeToPublicFolder}/${name}`,
-        alt: productName,
-      });
-    } else if (name === "review.txt") {
-      allDatas.review = fs.readFileSync(path.join(dir, name), {
-        encoding: "utf8",
-      });
-    }
-  });
-
-  return allDatas;
+    filenames.forEach(async (name) => {
+      if (!isNaN(Number(name.split(".")[0]))) {
+        allDatas.pageImages.push({
+          src: `/${dirRelativeToPublicFolder}/${name}`,
+          alt: productName,
+        });
+      } else if (name === "review.txt") {
+        allDatas.review = await fs.readFile(path.join(dir, name), {
+          encoding: "utf8",
+        });
+      }
+    });
+  } catch (error) {
+  } finally {
+    return allDatas;
+  }
 };
 
 export async function getServerSideProps(context) {
@@ -114,8 +116,8 @@ export async function getServerSideProps(context) {
     };
 
     product[0].addressArray = [
-      textOfPaths[context.params.product[0]],
-      textOfPaths[context.params.product[1]],
+      textOfPaths[context.params.product[0]] || null,
+      textOfPaths[context.params.product[1]] || null,
     ];
 
     return {
