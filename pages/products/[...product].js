@@ -4,9 +4,10 @@ import ProductsLayout from "../../components/ForProductsPage/ProductsLayout";
 import Product from "../../components/Product/Product";
 import { getFilteredProducts } from "../../helpers/helpers";
 import { filtersActions } from "../../store/Filters";
-const fs = require("fs/promises");
 import classifictionDatas from "../../data/Classifictions.json";
 import textOfPaths from "../../data/TextOfPaths.json";
+const fs = require("fs");
+const path = require("path");
 
 const ProductsPage = ({ products, product }) => {
   const dispatch = useDispatch();
@@ -36,34 +37,26 @@ const originKinds = {
   "smart-watches": "ساعت هوشمند",
 };
 
-const getPagePhotosAndReview = async (productName) => {
-  const root = process.cwd();
+const getPagePhotosAndReview = (productName) => {
   const allDatas = { pageImages: [], review: null };
-  await fs
-    .readdir(root + `/public/about-${productName}`, { encoding: "utf8" })
-    .then((files) => {
-      files.forEach((value) => {
-        const image = value.split(".")[0];
-        const imageInfos = {
-          src: `/about-${productName}/${value}`,
-          alt: productName,
-        };
-        if (Number(image)) {
-          allDatas.pageImages.push(imageInfos);
-        }
-      });
-    });
+  const dirRelativeToPublicFolder = `about-${productName}`;
 
-  await fs
-    .readFile(root + `/public/about-${productName}/review.txt`, {
-      encoding: "utf-8",
-    })
-    .then((value) => {
-      allDatas.review = value;
-    })
-    .catch(() => {
-      allDatas.review = null;
-    });
+  const dir = path.resolve("./public", dirRelativeToPublicFolder);
+
+  const filenames = fs.readdirSync(dir);
+
+  filenames.forEach((name) => {
+    if (!isNaN(Number(name.split(".")[0]))) {
+      allDatas.pageImages.push({
+        src: `/${dirRelativeToPublicFolder}/${name}`,
+        alt: productName,
+      });
+    } else if (name === "review.txt") {
+      allDatas.review = fs.readFileSync(path.join(dir, name), {
+        encoding: "utf8",
+      });
+    }
+  });
 
   return allDatas;
 };
