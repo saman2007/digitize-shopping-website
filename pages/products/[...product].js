@@ -45,7 +45,9 @@ const getPagePhotosAndReview = async (productName) => {
     const dir = path.resolve("./public", dirRelativeToPublicFolder);
     const filenames = await fs.readdir(dir, { encoding: "utf8" });
 
-    filenames.forEach(async (name) => {
+    for (let index = 0; index < filenames.length; index++) {
+      const name = filenames[index];
+
       if (!isNaN(Number(name.split(".")[0]))) {
         allDatas.pageImages.push({
           src: `/${dirRelativeToPublicFolder}/${name}`,
@@ -56,7 +58,7 @@ const getPagePhotosAndReview = async (productName) => {
           encoding: "utf8",
         });
       }
-    });
+    }
   } catch (error) {
   } finally {
     return allDatas;

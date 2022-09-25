@@ -15,6 +15,7 @@ function propertiesExist(obj, ...properties) {
 }
 
 const Product = ({ datas, classifiction }) => {
+  console.log(datas);
   const dispatch = useDispatch();
   const propertiesExistance = propertiesExist(
     datas,
